@@ -6,7 +6,7 @@
     <title>Swiss Style Home</title>
 
     <style>
-        /* RESET: Togliamo i margini di base del browser */
+        /* 1. RESET TOTALE */
         * {
             margin: 0;
             padding: 0;
@@ -15,58 +15,208 @@
 
         body {
             background-color: #ffffff;
-            /* Font tipico svizzero: pulito e senza grazie */
             font-family: Arial, Helvetica, sans-serif;
             color: #000000;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* BARRA DI NAVIGAZIONE */
+        /* 2. NAVBAR */
         .navbar {
             width: 100%;
             padding: 20px 40px; 
-            border-bottom: 2px solid #000000; /* Il tuo filetto nero */
             display: flex;
-            align-items: center;
-            justify-content: flex-start; /* Logo ancorato a sinistra */
+            align-items: center; 
         }
 
-        /* IL TUO LOGO */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; 
+        }
+
         .logo-container img {
-            height: 60px; /* Qui decidi quanto deve essere piccolo */
+            height: 80px; 
             width: auto;
             display: block;
         }
-        /* Questo serve ad allineare logo e testo */
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Lo spazio tra logo e scritta */
-}
 
-/* Questo definisce lo stile della scritta */
-.logo-text {
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-        /* AREA CONTENUTO (ESEMPIO) */
-        .content {
-            padding: 40px;
+        .logo-text {
+            font-size: 25px;
+            font-weight: 700;
+            text-transform: lowercase;
+            letter-spacing: -0.5px;
         }
+
+        /* 3. GRIGLIA CONTENUTO */
+        .content {
+            padding: 60px 60px;
+        }
+
+        .swiss-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr; 
+            column-gap: 60px;
+            align-items: start;
+            margin-bottom: 20px; /* Spazio sotto ogni riga di griglia */
+        }
+
+        .col-title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-transform: none;
+        }
+
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-color: #1eff00;
+            margin: 60px 0;
+        }
+
+        .col-text p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #333;
+            max-width: 700px;
+        }
+
+        /* HERO SECTION */
+        .hero-image {
+            width: 100%;
+            height: calc(100vh - 126px);
+            background-image: url('giorno_01/assets/lugano.png'); 
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-text {
+            font-size: 150px;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.7);
+        }
+
+        /* ANIMAZIONE */
+        .tracking-in-contract-bck-bottom {
+            animation: tracking-in-contract-bck-bottom 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+        }
+
+        @keyframes tracking-in-contract-bck-bottom {
+          0% { letter-spacing: 1em; transform: translateZ(400px) translateY(300px); opacity: 0; }
+          40% { opacity: 0.6; }
+          100% { transform: translateZ(0) translateY(0); opacity: 1; }
+        }
+
+        /* GRIGLIA CARD */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 30px; 
+            padding-top: 20px; /* Distanza dal titolo esercizi */
+            padding-bottom: 80px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .card-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background-color: #f0f0f0;
+            overflow: hidden;
+            border: 1px solid #000;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: lowercase;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            line-height: 1.4;
+            color: #666;
+        }
+
+        @media (max-width: 1024px) { .cards-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .swiss-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
 <nav class="navbar">
     <div class="logo-container">
-        <img src="assets/Artboard 1.png" alt="Logo">
-        <span class="logo-text">Kiki's home page</span>
+        <img src="giorno_01/assets/Artboard 1 copy 11@4x.png" alt="Logo">
+        <span class="logo-text">kiki's home page</span>
+    </div>
+</nav>
+
+<section class="hero-image">
+    <div class="hero-text tracking-in-contract-bck-bottom">
+        welcome
+    </div>
+</section>
+
+<main class="content">
+    <div class="swiss-grid">
+        <h2 class="col-title">Briefing workshop</h2>
+        <div class="col-text">
+            <p>
+                Il seminario introduce i fondamenti della programmazione per la grafica interattiva e in tempo reale. Attraverso lo studio di HTML, JavaScript e dei concetti base del creative coding (variabili, cicli, funzioni, array), gli studenti acquisiranno gli strumenti pratici per sviluppare progetti dinamici e complessi in ambiente web.
+            </p>    
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="swiss-grid">
+        <h2 class="col-title">Esercizi del workshop</h2>
+        <div class="col-text">
+            </div>
     </div>
     
-    <ul class="nav-menu">
-        <li><a href="#">Esercizi</a></li>
-        <li><a href="#">Info</a></li>
-    </ul>
-</nav>
+    <div class="cards-grid">
+        <div class="card">
+            <div class="card-image"><img src="giorno_01/assets/esercizio_01.jpg" alt="01"></div>
+            <h3 class="card-title">01_geometrie</h3>
+            <p class="card-desc">Sperimentazioni su forme vettoriali e loop.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-image"><img src="assets/esercizio2.jpg" alt="02"></div>
+            <h3 class="card-title">02_interazione</h3>
+            <p class="card-desc">Studio degli eventi mouse e tastiera.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-image"><img src="assets/esercizio3.jpg" alt="03"></div>
+            <h3 class="card-title">03_colore</h3>
+            <p class="card-desc">Generazione dinamica di palette cromatiche.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-image"><img src="assets/esercizio4.jpg" alt="04"></div>
+            <h3 class="card-title">04_tempo reale</h3>
+            <p class="card-desc">Animazioni basate sul tempo e refresh rate.</p>
+        </div>
+    </div>
+</main>
+
 </body>
 </html>

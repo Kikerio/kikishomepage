@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue to Pink Transition</title>
+    <style>
+       div {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        padding: 15px;
+        display: block;
+        white-space: nowrap;
+        padding-left: 1%;
+        cursor: pointer;
+        color: #ffffff;
+
+        /* Definiamo il colore di sfondo usando una variabile */
+        /* Il colore base è preso dall'attributo style nel body */
+        background-color: var(--bg-color);
+
+        /* RITORNO (6 secondi): il padding e il colore tornano indietro insieme */
+        /* Usiamo 'background-color' invece di 'filter' per evitare il verde */
+        transition: padding-left 3s ease-in-out, background-color 3s ease-in-out;
+       }
+
+       div:hover {
+        /* ANDATA (0.4 secondi): rapida verso destra */
+        transition: padding-left 0.4s ease-out, background-color 0.4s ease-out;
+        
+        padding-left: 99%;
+
+        /* Quando tocca il bordo destro, diventa rosa vibrante */
+        background-color: #FF2E93 !important; 
+       }
+    </style>
+</head>
+<body>
+    <div style="--bg-color: #2B3964; background-color: #2B3964;">M</div>
+    <div style="--bg-color: #314172; background-color: #314172;">I</div>
+    <div style="--bg-color: #374981; background-color: #374981;">C</div>
+    <div style="--bg-color: #3D528F; background-color: #3D528F;">H</div>
+    <div style="--bg-color: #435A9D; background-color: #435A9D;">E</div>
+    <div style="--bg-color: #4962AB; background-color: #4962AB;">L</div>
+    <div style="--bg-color: #546CB6; background-color: #546CB6;">L</div>
+    <div style="--bg-color: #6278BC; background-color: #6278BC;">E</div>
+    <div style="--bg-color: #7085C2; background-color: #7085C2;">C</div>
+    <div style="--bg-color: #7E91C8; background-color: #7E91C8;">H</div>
+    <div style="--bg-color: #8D9DCE; background-color: #8D9DCE;">I</div>
+    <div style="--bg-color: #9BA9D4; background-color: #9BA9D4;">C</div>
+    <div style="--bg-color: #A9B6DA; background-color: #A9B6DA;">H</div>
+    <div style="--bg-color: #B8C2E0; background-color: #B8C2E0;">E</div>
+    <div style="--bg-color: #C6CEE6; background-color: #C6CEE6;">R</div>
+    <div style="--bg-color: #D4DAEC; background-color: #D4DAEC;">I</div>
+    <div style="--bg-color: #E3E7F3; background-color: #E3E7F3;">O</div>
+</body>
+</html>
